@@ -1,0 +1,4 @@
+pyeddytracker
+geoviews
+panel
+cartopy
