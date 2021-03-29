@@ -1,6 +1,4 @@
-numpy
-cython
 pyeddytracker
-geoviews
+pyEddyTrackerSample
+holoviews
 panel
-cartopy
