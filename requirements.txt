@@ -2,3 +2,4 @@ pyeddytracker
 pyEddyTrackerSample
 holoviews
 panel
+pylook-map
