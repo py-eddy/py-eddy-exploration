@@ -1,3 +1,4 @@
+numpy
 pyeddytracker
 pyEddyTrackerSample
 holoviews>=1.14
