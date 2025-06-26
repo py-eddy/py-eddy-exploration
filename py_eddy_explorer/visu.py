@@ -1,5 +1,7 @@
 """all function to visualize networks"""
+
 import datetime
+
 import numpy as np
 
 try:
@@ -15,10 +17,8 @@ except ImportError as err:
     raise err
 
 from holoviews.operation.datashader import regrid
-from shapely.geometry import Polygon
-
-
 from py_eddy_tracker.generic import flatten_line_matrix
+from shapely.geometry import Polygon
 
 proj = ccrs.PlateCarree()
 
@@ -94,7 +94,6 @@ def explore(
     datasets_unique = [np.unique(d.time) for d, _ in datasets]
     unique = np.unique(np.concatenate(datasets_unique))
 
-
     if date_widget == "calendar":
         now = datetime.date(1950, 1, 1) + datetime.timedelta(int(unique[0]))
         pn_date = pn.widgets.DatePicker(
@@ -115,7 +114,7 @@ def explore(
         @pn.depends(pn_date_value=pn_date.param.value)
         def plot_date(pn_date_value):
             return pn.pane.HTML(
-                f"<h1>date = {np.datetime64('1950-01-01')+np.timedelta64(pn_date_value)}</h1>"
+                f"<h1>date = {np.datetime64('1950-01-01') + np.timedelta64(pn_date_value)}</h1>"
             )
 
         widget_date = pn.Row(pn_date, plot_date)
@@ -185,16 +184,18 @@ def explore(
             ).opts(responsive=True, tools=["hover"], clabel=info)
 
         if dynamic:
-            fond = regrid(hv.DynamicMap(update_fond)).opts(
-                height=500, responsive=True
-            )
+            fond = regrid(hv.DynamicMap(update_fond)).opts(height=500, responsive=True)
         else:
-            fond = hv.DynamicMap(update_fond).opts(
-                responsive=True
-            )
+            fond = hv.DynamicMap(update_fond).opts(responsive=True)
 
         if tiles is not None:
-            visu = gv.Overlay([tiles, fond, gv.DynamicMap(update_all),]).collate()
+            visu = gv.Overlay(
+                [
+                    tiles,
+                    fond,
+                    gv.DynamicMap(update_all),
+                ]
+            ).collate()
         else:
             visu = gv.Overlay(
                 [

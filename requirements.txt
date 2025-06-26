@@ -1,9 +1,8 @@
 numpy
 pyeddytracker
 pyEddyTrackerSample
-holoviews>=1.14
-geoviews>=1.9
-panel>=0.11
-datashader>=0.12
-cartopy
-geopandas>=0.9.0
+holoviews>=1.20
+panel>=1.6.0
+datashader
+pandas>=2.2.0
+param

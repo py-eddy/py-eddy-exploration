@@ -2,7 +2,7 @@
 How do I get set up ?
 =====================
 
-To avoid problems with installation, use of the virtualenv Python virtual environment is recommended or conda.
+To avoid problems with installation, use of conda environment is recommended.
 
 Sources are available on github https://github.com/py-eddy/py-eddy-exploration
 
